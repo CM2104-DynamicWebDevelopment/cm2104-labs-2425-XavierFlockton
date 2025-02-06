@@ -54,7 +54,7 @@ async function getTracks(searchterm, res) {
 }
 
 app.get('/search', function (req, res) {
-    var searchterm = req.query.searchterm;
+    var searchterm = req.query.search;
     getTracks(searchterm, res);
 });
 
