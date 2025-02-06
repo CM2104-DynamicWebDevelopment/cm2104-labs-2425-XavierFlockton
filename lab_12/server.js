@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}))
+
 var SpotifyWebApi = require('spotify-web-api-node');
 var spotifyApi = new SpotifyWebApi({
     clientId: 'b61389fd0bb54b54ae2bba0ff41f5889',
@@ -51,17 +52,6 @@ async function getTracks(searchterm, res) {
         console.error(err);
     });
 }
-
-app.get('/getform', function(req, res){
-    var name = req.query.name;
-    var quest = req.query.quest;
-     res.send("Hi "+name+" I am sure you will "+quest) ;
-});
-
-app.post('/postform', function(req, res){
-    var searchterm = req.query.searchterm;
-    getTracks(searchterm, res);
-});
 
 app.get('/search', function (req, res) {
     var searchterm = req.query.searchterm;
