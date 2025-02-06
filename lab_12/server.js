@@ -43,7 +43,7 @@ async function getTracks(searchterm, res) {
             console.log(HTMLResponse);
         }
         res.send(HTMLResponse)
-        }, function (err) {
+        }, function (err) { 
         console.error(err);
         res.send(JSON.stringify(data.body));
     }, function (err) {
@@ -51,7 +51,8 @@ async function getTracks(searchterm, res) {
     });
 }
 
-app.get('/searchLove', function (req, res) {
-    getTracks('love', res);
+app.get('/search', function (req, res) {
+    var searchterm = req.query.searchterm;
+    getTracks(searchterm, res);
 });
 app.listen(8080);
