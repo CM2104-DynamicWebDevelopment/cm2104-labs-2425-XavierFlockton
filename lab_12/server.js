@@ -59,9 +59,8 @@ app.get('/getform', function(req, res){
 });
 
 app.post('/postform', function(req, res){
-    var name = req.body.name;
-    var quest = req.body.quest;
-        res.send("Hi "+name+" I am sure you will "+quest) ;
+    var searchterm = req.query.searchterm;
+    getTracks(searchterm, res);
 });
 
 app.get('/search', function (req, res) {
