@@ -16,11 +16,8 @@ async function connectDB() {
  await client.connect();
  console.log('Connected successfully to server');
  db = client.db(dbname);
- //everything is good lets start
- app.listen(8080);
-}
 
-app.get('/all', function(req, res) {
+ app.get('/all', function(req, res) {
     db.collection('quotes').find().toArray(function(err, result) {
     if (err) throw err;
     var output = "<h1>All the quotes</h1>";
@@ -33,3 +30,10 @@ app.get('/all', function(req, res) {
     res.send(output);
     });
    });
+
+ //everything is good lets start
+ app.listen(8080);
+
+}
+
+
