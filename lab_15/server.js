@@ -89,9 +89,7 @@ app.get('/profile', function(req, res) {
     res.render('pages/profile', {
       user: result
     })
-    res.render('pages/users', {
-      currentuser: result
-    })
+
   });
 
 });
